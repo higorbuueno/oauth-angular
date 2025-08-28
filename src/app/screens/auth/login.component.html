@@ -1,0 +1,32 @@
+<div class="login-container">
+  <!-- Caso não estiver logado -->
+
+  @if(!isLogged) {
+  <div class="login-box">
+    <!-- Botão Google -->
+    <button class="google-btn" (click)="this.login()">
+      <img
+        src="https://developers.google.com/identity/images/g-logo.png"
+        alt="Google logo"
+        class="google-icon"
+      />
+      Logar com Google
+    </button>
+  </div>
+  } @else {
+  <div class="home-container">
+    <div class="home-box">
+      <!-- Foto de perfil -->
+      <img [src]="userInfo?.picture" alt="Foto de perfil" class="profile-pic" />
+
+      <!-- Nome e email -->
+      <h2 class="user-name">{{ userInfo?.name }}</h2>
+      <p class="user-email">{{ userInfo?.email }}</p>
+
+      <!-- Botão logout -->
+      <button class="logout-btn" (click)="logout()">Sair</button>
+    </div>
+  </div>
+
+  }
+</div>
